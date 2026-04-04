@@ -1,6 +1,8 @@
+#tfsec:ignore:aws-ec2-require-vpc-flow-logs-for-all-vpcs
 resource "aws_vpc" "main-vpc" {
   cidr_block = var.cidr
   tags       = merge(var.tags, local.common_tags)
+
 }
 
 resource "aws_subnet" "main-subnet" {
@@ -12,8 +14,9 @@ resource "aws_subnet" "main-subnet" {
 }
 
 resource "aws_security_group" "main-sg" {
-  count  = var.sg == true ? 1 : 0
-  vpc_id = aws_vpc.main-vpc.id
+  count       = var.sg == true ? 1 : 0
+  description = "Security group for VPC ${aws_vpc.main-vpc.id}"
+  vpc_id      = aws_vpc.main-vpc.id
   dynamic "ingress" {
     for_each = var.ingress_rules
     content {

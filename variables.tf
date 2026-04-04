@@ -36,7 +36,7 @@ variable "sg" {
 variable "ingress_rules" {
   description = "Lista de regras de ingress"
   type = list(object({
-    description = string
+    description = optional(string, null)
     from_port   = number
     to_port     = number
     protocol    = string
@@ -48,7 +48,7 @@ variable "ingress_rules" {
 variable "egress_rules" {
   description = "Lista de regras de egress"
   type = list(object({
-    description = string
+    description = optional(string, null)
     from_port   = number
     to_port     = number
     protocol    = string
