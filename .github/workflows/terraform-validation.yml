@@ -1,4 +1,5 @@
-name: Terraform Validation
+name: Terraform Validation VPC Module
+run-name: ${{ github.actor }} iniciou a validação do módulo terraform
 
 on:
   pull_request:
@@ -35,10 +36,10 @@ jobs:
         with:
           soft_fail: true
 
-      # - name: Terraform Test
-      #   id: test
-      #   run: terraform test
-      #   # env:
-      #   #   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #   #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #   #   AWS_DEFAULT_REGION: us-east-1
+      - name: Terraform Test
+        id: test
+        run: terraform test
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-1
