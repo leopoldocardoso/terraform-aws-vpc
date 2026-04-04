@@ -15,26 +15,25 @@ run "valid_create_vpc_and_valid_create_subnet" {
 
   # Test VPC
   assert {
-    condition     = aws_vpc["main-vpc"].cidr_block == var.cidr
+    condition     = aws_vpc.main-vpc.cidr_block == var.cidr
     error_message = "Invalid CIDR block"
-    
   }
 
   # Test Subnet
   assert {
-    condition     = length(aws_subnet["main-subnet"]) == 1
+    condition     = length(aws_subnet.main-subnet) == 1
     error_message = "Subnet was not created"
   }
 
   # Test Subnet CIDR Block
   assert {
-    condition     = aws_subnet["main-subnet"][0].cidr_block == var.cidr_block
+    condition     = aws_subnet.main-subnet[0].cidr_block == var.cidr_block
     error_message = "Invalid subnet CIDR block"
   }
 
   # Test availability zone
   assert {
-    condition     = aws_subnet["main-subnet"][0].availability_zone == var.availability_zone
+    condition     = aws_subnet.main-subnet[0].availability_zone == var.availability_zone
     error_message = "Subnet is not in the correct availability zone"
   }
 
