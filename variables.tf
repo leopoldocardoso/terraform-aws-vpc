@@ -27,32 +27,3 @@ variable "availability_zone" {
   type        = string
   default     = null
 }
-
-variable "sg" {
-  description = "Security Group"
-  type        = bool
-}
-
-variable "ingress_rules" {
-  description = "Lista de regras de ingress"
-  type = list(object({
-    description = optional(string, null)
-    from_port   = number
-    to_port     = number
-    protocol    = string
-    cidr_blocks = list(string)
-  }))
-  default = []
-}
-
-variable "egress_rules" {
-  description = "Lista de regras de egress"
-  type = list(object({
-    description = optional(string, null)
-    from_port   = number
-    to_port     = number
-    protocol    = string
-    cidr_blocks = list(string)
-  }))
-  default = []
-}
