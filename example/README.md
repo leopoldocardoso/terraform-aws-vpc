@@ -8,6 +8,19 @@ Este exemplo demonstra como usar o módulo VPC para criar uma VPC com múltiplas
 - Credenciais AWS configuradas
 - Permissões para criar VPC e Subnets
 
+## Segurança
+
+Este módulo utiliza **tfsec** para validação de segurança na pipeline de CI/CD. O tfsec analisa o código Terraform em busca de potenciais problemas de segurança e más práticas antes do deployment.
+
+### Validações de Segurança
+
+A pipeline automaticamente executa:
+- **tfsec scan** - Análise estática de segurança do código Terraform
+- Verificação de compliance com best practices da AWS
+- Detecção de configurações inseguras
+
+> **Nota:** Alguns avisos do tfsec podem ser intencionalmente ignorados usando comentários `#tfsec:ignore` quando há justificativa válida (ex: VPC flow logs podem não ser necessários em ambientes de desenvolvimento).
+
 ## Como Usar
 
 ### 1. Inicializar o Terraform
