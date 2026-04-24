@@ -1,8 +1,8 @@
 locals {
   common_tags = {
-    envinronment = "dsv"
-    project      = "linux tips"
-    owner        = "leopoldo peixoto"
-    objective    = "projeto final"
+    environment = "dsv"
+    project     = "linuxtips"
+    owner       = "leopoldo peixoto"
+    objective   = "final project"
   }
 }
