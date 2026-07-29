@@ -1,4 +1,11 @@
-# Repositório dedicado ao projeto de conclusão de curso Descomplicando Terraform - VPC
+# terraform-aws-vpc
+
+### Módulo Terraform reusável para VPC AWS com múltiplas AZs
+
+CI/CD via GitHub Actions, security scan com **tfsec** e testes automatizados com **Terraform Test**.
+
+> Este módulo teve origem no projeto de conclusão do curso Descomplicando Terraform (LINUXtips).
+
 
 ## Sobre
 
